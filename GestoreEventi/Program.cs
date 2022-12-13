@@ -1,5 +1,6 @@
 ﻿using GestoreEventi;
 
+Console.OutputEncoding = System.Text.Encoding.UTF8;
 Evento evento1 = Management.CostruisciEvento();
 evento1.PrenotaPosti();
-evento1.DisdiciPosti();
+Management.ChiediDisdette(evento1);

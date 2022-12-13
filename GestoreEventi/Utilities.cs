@@ -49,5 +49,26 @@ namespace GestoreEventi {
             return numero;
         }
 
+        public static bool convalida() {
+            bool hai = true;
+            bool valid = false;
+            do {
+                string letter = Console.ReadLine().ToLower();
+                if (letter == "s" || letter == "n" || letter == "") {
+                    valid = true;
+                    if (letter == "s") {
+                        hai = true;
+                    }
+                    else {
+                        hai = false;
+                    }
+                }
+                else {
+                    Console.Write("Non è una scelta valida. Inserisci \"s\" o \"n\": ");
+                }
+            } while (!valid);
+            return hai;
+        }
+
     }
 }

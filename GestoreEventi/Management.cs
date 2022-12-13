@@ -8,7 +8,6 @@ namespace GestoreEventi {
     public class Management {
 
         public static Evento CostruisciEvento() {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("Creiamo un nuovo evento!");
             Console.Write("Nome: ");
             string titolo = Console.ReadLine();
@@ -18,6 +17,14 @@ namespace GestoreEventi {
             uint capienzaMassima = Utilities.ControllaUint(Console.ReadLine());
 
             return new Evento(titolo, data, capienzaMassima);
+        }
+
+        public static void ChiediDisdette(Evento evento) {
+            Console.Write("Vuoi disdire delle prenotazioni? (s/N): ");
+            bool disdire = Utilities.convalida();
+            if (disdire) {
+                evento.DisdiciPosti();
+            }
         }
 
     }
