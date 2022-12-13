@@ -42,7 +42,7 @@ namespace GestoreEventi {
             Console.Write("Inserisci il numero di eventi da inserire: ");
             uint quanti = Utilities.ControllaUint(Console.ReadLine());
             for (uint i = 0; i<quanti; i++){
-                Console.WriteLine("Inserisci i dati per l'evento " + i + 1 + ".");
+                Console.WriteLine("Inserisci i dati per l'evento " + (i + 1) + ".");
                 lista.AggiungiEvento(CostruisciEvento());
             }
 		}
