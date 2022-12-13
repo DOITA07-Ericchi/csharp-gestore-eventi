@@ -40,20 +40,24 @@ namespace GestoreEventi {
         public uint CapienzaMassima { get => capienzaMassima; }
         public uint PostiPrenotati { get => postiPrenotati; }
 
-        public void PrenotaPosti(uint posti) {
-            this.postiPrenotati += posti;
-            Console.WriteLine("Sono stati prenotati " + posti + " posti.\nI posti disponibili ora sono " + (this.CapienzaMassima - this.postiPrenotati) + ".");
+        public void PrenotaPosti() {
+            Console.WriteLine("Numero di prenotazioni: ");
+            uint prenotazioni = Utilities.ControllaUint(Console.ReadLine());
+            this.postiPrenotati += prenotazioni;
+            Console.WriteLine("Sono stati prenotati " + prenotazioni + " posti. I posti disponibili ora sono " + (this.CapienzaMassima - this.postiPrenotati) + ".");
         }
 
-        public void DisdiciPosti(uint posti) {
-            if (posti < this.postiPrenotati) {
+        public void DisdiciPosti() {
+            Console.WriteLine("Numero di disdette: ");
+            uint disdette = Utilities.ControllaUint(Console.ReadLine());
+            if (disdette > this.postiPrenotati) {
                 throw new Exception("Non puoi disdire un numero di posti maggiore di quelli prenotati!");
             }
             if (DateOnly.FromDateTime(DateTime.Now) > data) {
                 throw new Exception("Non puoi disdire posti da un evento passato!");
             }
-            this.postiPrenotati += posti;
-            Console.WriteLine("Sono stati prenotati " + posti + " posti.\nI posti disponibili ora sono " + (this.CapienzaMassima - this.postiPrenotati) + ".");
+            this.postiPrenotati -= disdette;
+            Console.WriteLine("Sono stati disdette " + disdette + " prenotazioni. I posti disponibili ora sono " + (this.CapienzaMassima - this.postiPrenotati) + ".");
         }
 
         public void StampaEvento() {

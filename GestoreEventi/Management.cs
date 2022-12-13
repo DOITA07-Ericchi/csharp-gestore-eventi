@@ -19,5 +19,6 @@ namespace GestoreEventi {
 
             return new Evento(titolo, data, capienzaMassima);
         }
+
     }
 }
