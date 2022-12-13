@@ -37,5 +37,17 @@ namespace GestoreEventi {
             return data;
         }
 
+        public static uint ControllaUint(string value) {
+            bool valido = true;
+            uint numero = 0;
+            valido = uint.TryParse(value, out numero);
+            while (!valido) {
+                Console.WriteLine("Non hai inserito un numero intelligibile. Riprova: ");
+                value = Console.ReadLine();
+                valido = uint.TryParse(value, out numero);
+            }
+            return numero;
+        }
+
     }
 }

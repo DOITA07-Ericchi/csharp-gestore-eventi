@@ -6,6 +6,6 @@ Console.WriteLine("Creiamo un nuovo evento!");
 Console.Write("Nome: ");
 string titolo = Console.ReadLine();
 Console.Write("Data (yyyy年mm月dd日 oppure yyyy/mm/dd): ");
-string dataText = Console.ReadLine();
-DateOnly data = Utilities.ControllaData(dataText);
+DateOnly data = Utilities.ControllaData(Console.ReadLine());
 Console.Write("Capienza massima: ");
+uint capienzaMassima = Utilities.ControllaUint(Console.ReadLine());
