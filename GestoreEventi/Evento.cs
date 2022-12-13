@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GestoreEventi {
-    internal class Evento {
+    public class Evento {
         private string titolo;
         private DateOnly data;
         private uint capienzaMassima;
