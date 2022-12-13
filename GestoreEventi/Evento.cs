@@ -60,7 +60,7 @@ namespace GestoreEventi {
             Console.WriteLine("Sono stati disdette " + disdette + " prenotazioni. I posti disponibili ora sono " + (this.CapienzaMassima - this.postiPrenotati) + ".");
         }
 
-        public void StampaEvento() {
+        public virtual void StampaEvento() {
             Console.WriteLine("" + data.ToString() + " - " + titolo);
         }
     }
