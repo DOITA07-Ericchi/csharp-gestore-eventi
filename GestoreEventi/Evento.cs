@@ -41,14 +41,14 @@ namespace GestoreEventi {
         public uint PostiPrenotati { get => postiPrenotati; }
 
         public void PrenotaPosti() {
-            Console.WriteLine("Numero di prenotazioni: ");
+            Console.Write("Numero di prenotazioni: ");
             uint prenotazioni = Utilities.ControllaUint(Console.ReadLine());
             this.postiPrenotati += prenotazioni;
             Console.WriteLine("Sono stati prenotati " + prenotazioni + " posti. I posti disponibili ora sono " + (this.CapienzaMassima - this.postiPrenotati) + ".");
         }
 
         public void DisdiciPosti() {
-            Console.WriteLine("Numero di disdette: ");
+            Console.Write("Numero di disdette: ");
             uint disdette = Utilities.ControllaUint(Console.ReadLine());
             if (disdette > this.postiPrenotati) {
                 throw new Exception("Non puoi disdire un numero di posti maggiore di quelli prenotati!");
