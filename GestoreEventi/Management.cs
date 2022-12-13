@@ -38,5 +38,15 @@ namespace GestoreEventi {
             return new ProgrammaEventi(titolo);
         }
 
+        public static void AggiungiEventiALista(ProgrammaEventi lista) {
+            Console.Write("Inserisci il numero di eventi da inserire: ");
+            uint quanti = Utilities.ControllaUint(Console.ReadLine());
+            for (uint i = 0; i<quanti; i++){
+                Console.WriteLine("Inserisci i dati per l'evento " + i + 1 + ".");
+                lista.AggiungiEvento(CostruisciEvento());
+            }
+		}
+
+
     }
 }

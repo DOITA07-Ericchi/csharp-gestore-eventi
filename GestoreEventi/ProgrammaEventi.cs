@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -40,13 +41,30 @@ namespace GestoreEventi {
             this.eventi.Clear();
             Console.WriteLine("Tutti gli eventi del programma " + this.titolo + " sono stati eliminati.");
         }
-        public void StampaListaEventi(List<Evento> eventiListato) {
+        public void StampaListaEventi() {
             Console.WriteLine("Ecco tutti gli eventi del programma " + this.titolo + ":");
-            foreach (Evento evento in eventiListato) {
+            foreach (Evento evento in this.eventi) {
                 Console.WriteLine(evento.GetData() + " - " + evento.GetTitolo());
             }
         }
 
-        public string Titolo { get => titolo; set => titolo = value; }
+        public static void StampaEventiInData(ProgrammaEventi programma, DateOnly date) {
+            Console.WriteLine("Ecco gli eventi presenti in data " + date + ":");
+			programma.StampaListaEventi();
+        }
+
+		public void ChiediEventiInData() {
+			Console.Write("Inserisci la data di cui vuoi conoscere gli eventi: ");
+			DateOnly date = Utilities.ControllaData(Console.ReadLine());
+			ProgrammaEventi temp = new ProgrammaEventi("Programma temporaneo per la stampa degli eventi");
+			foreach (Evento evento in this.eventi) {
+				if (evento.GetData() == date) {
+					temp.AggiungiEvento(evento);
+				}
+			}
+            StampaEventiInData(temp, date);
+		}
+
+		public string Titolo { get => titolo; set => titolo = value; }
     }
 }
