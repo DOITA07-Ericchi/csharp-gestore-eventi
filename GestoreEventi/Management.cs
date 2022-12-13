@@ -20,10 +20,15 @@ namespace GestoreEventi {
         }
 
         public static void ChiediDisdette(Evento evento) {
+            bool ancora = true;
             Console.Write("Vuoi disdire delle prenotazioni? (s/N): ");
             bool disdire = Utilities.convalida();
             if (disdire) {
-                evento.DisdiciPosti();
+                while (ancora) {
+                    evento.DisdiciPosti();
+                    Console.Write("Vuoi disdire altre prenotazioni? (s/N): ");
+                    ancora = Utilities.convalida();
+                }
             }
         }
 
