@@ -32,10 +32,10 @@ namespace GestoreEventi {
             }
         }
 
-        public static void CostruisciListaEvento() {
+        public static ProgrammaEventi CostruisciProgrammaEvento() {
             Console.Write("Inserisci il titolo del programma eventi: ");
             string titolo = Utilities.ControllaVuoti(Console.ReadLine());
-            ProgrammaEventi eventi = new ProgrammaEventi(titolo);
+            return new ProgrammaEventi(titolo);
         }
 
     }

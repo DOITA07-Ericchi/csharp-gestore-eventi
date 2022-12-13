@@ -6,4 +6,4 @@ evento1.PrenotaPosti();
 Management.ChiediDisdette(evento1);
 
 
-ProgrammaEventi fiereDelNord = Management.CostruisciListaEvento();
+ProgrammaEventi fiereDelNord = Management.CostruisciProgrammaEvento();
