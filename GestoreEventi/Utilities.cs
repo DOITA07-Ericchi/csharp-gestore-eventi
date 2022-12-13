@@ -42,9 +42,21 @@ namespace GestoreEventi {
             uint numero = 0;
             valido = uint.TryParse(value, out numero);
             while (!valido) {
-                Console.WriteLine("Non hai inserito un numero intelligibile. Riprova: ");
+                Console.Write("Non hai inserito un numero intelligibile. Riprova: ");
                 value = Console.ReadLine();
                 valido = uint.TryParse(value, out numero);
+            }
+            return numero;
+        }
+
+        public static double ControllaDouble(string value) {
+            bool valido = true;
+            double numero = 0;
+            valido = double.TryParse(value, out numero);
+            while (!valido) {
+                Console.Write("Non hai inserito un numero intelligibile. Riprova: ");
+                value = Console.ReadLine();
+                valido = double.TryParse(value, out numero);
             }
             return numero;
         }

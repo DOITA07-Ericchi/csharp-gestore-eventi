@@ -44,19 +44,19 @@ namespace GestoreEventi {
         public void StampaListaEventi() {
             Console.WriteLine("Ecco tutti gli eventi del programma " + this.titolo + ":");
             foreach (Evento evento in this.eventi) {
-                Console.WriteLine(evento.GetData() + " - " + evento.GetTitolo());
+                Console.WriteLine(evento.GetData().ToString("yyyy年MM月dd日") + " - " + evento.GetTitolo());
             }
         }
 
         public static void StampaEventiInData(ProgrammaEventi programma, DateOnly date) {
-            Console.WriteLine("Ecco gli eventi presenti in data " + date + ":");
+            Console.WriteLine("Ecco gli eventi presenti in data " + date.ToString("yyyy年MM月dd日") + ":");
 			programma.StampaListaEventi();
         }
 
 		public void ChiediEventiInData() {
 			Console.Write("Inserisci la data di cui vuoi conoscere gli eventi: ");
 			DateOnly date = Utilities.ControllaData(Console.ReadLine());
-			ProgrammaEventi temp = new ProgrammaEventi("Programma temporaneo per la stampa degli eventi");
+			ProgrammaEventi temp = new ProgrammaEventi("in data " + date.ToString("yyyy年MM月dd日"));
 			foreach (Evento evento in this.eventi) {
 				if (evento.GetData() == date) {
 					temp.AggiungiEvento(evento);

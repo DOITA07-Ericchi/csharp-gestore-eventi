@@ -19,6 +19,23 @@ namespace GestoreEventi {
             return new Evento(titolo, data, capienzaMassima);
         }
 
+        public static Conferenza CostruisciConferenza() {
+            Console.WriteLine("Creiamo una nuova conferenza!");
+            Console.Write("Nome: ");
+            string titolo = Console.ReadLine();
+            Console.Write("Data (yyyy年mm月dd日 oppure yyyy/mm/dd): ");
+            DateOnly data = Utilities.ControllaData(Console.ReadLine());
+            Console.Write("Capienza massima: ");
+            uint capienzaMassima = Utilities.ControllaUint(Console.ReadLine());
+            Console.Write("Relatore: ");
+            string relatore = Console.ReadLine();
+            Console.Write("Prezzo: ");
+            double prezzo = Utilities.ControllaDouble(Console.ReadLine());
+
+
+            return new Conferenza(titolo, data, capienzaMassima, relatore, prezzo);
+        }
+
         public static void ChiediDisdette(Evento evento) {
             bool ancora = true;
             Console.Write("Vuoi disdire delle prenotazioni? (s/N): ");

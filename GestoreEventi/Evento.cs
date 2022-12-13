@@ -61,7 +61,7 @@ namespace GestoreEventi {
         }
 
         public virtual void StampaEvento() {
-            Console.WriteLine("" + data.ToString() + " - " + titolo);
+            Console.WriteLine("" + data.ToString("yyyy年MM月dd日") + " - " + titolo);
         }
     }
 }

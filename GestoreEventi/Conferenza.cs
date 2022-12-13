@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Globalization;
 
 namespace GestoreEventi {
 	public class Conferenza : Evento {
+		CultureInfo italy = CultureInfo.GetCultureInfo("it-IT");
 		private string relatore;
 		private double prezzo;
 		private DateOnly data;
@@ -18,7 +20,7 @@ namespace GestoreEventi {
 		public double Prezzo { get => prezzo; set => prezzo = value; }
 
 		public override void StampaEvento(){
-			Console.WriteLine("" + data.ToString() + " - " + titolo + " - " + relatore + " - " + prezzo);
+			Console.WriteLine("" + data.ToString("yyyy年MM月dd日") + " - " + titolo + " - " + relatore + " - " + string.Format(italy, "{0:C}", prezzo));
 		}
     }
 }
